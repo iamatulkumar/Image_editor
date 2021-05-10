@@ -14,7 +14,7 @@ import android.view.View;
 
 import androidx.annotation.RequiresApi;
 
-public class CustomPaintView extends View {
+public class CustomPaintVieww extends View {
     private Paint mPaint;
     private Bitmap mDrawBit;
     private Paint mEraserPaint;
@@ -27,23 +27,24 @@ public class CustomPaintView extends View {
 
     private int mColor;
 
-    public CustomPaintView(Context context) {
+
+    public CustomPaintVieww(Context context) {
         super(context);
         init(context);
     }
 
-    public CustomPaintView(Context context, AttributeSet attrs) {
+    public CustomPaintVieww(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context);
     }
 
-    public CustomPaintView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public CustomPaintVieww(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context);
     }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
-    public CustomPaintView(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+    public CustomPaintVieww(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
         super(context, attrs, defStyleAttr, defStyleRes);
         init(context);
     }

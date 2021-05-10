@@ -17,6 +17,10 @@
     <dimen name="delete_icon_size">20dp</dimen>
     <dimen name="rotate_icon_size">45dp</dimen>
 
+    <dimen name="stroke_bar_size">150dp</dimen>
+    <dimen name="preview_dot_stroke_size">1dp</dimen>
+    <dimen name="full_brush_size">40dp</dimen>
+
     <!--Spacing-->
     <dimen name="spacing_xxsmall">2dp</dimen>
     <dimen name="spacing_xsmall">4dp</dimen>

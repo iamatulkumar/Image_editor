@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -30,4 +31,6 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:${rxandroid_version}"
     implementation "androidx.core:core-ktx:${core_ktx_version}"
     implementation project(':ananas')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
 }

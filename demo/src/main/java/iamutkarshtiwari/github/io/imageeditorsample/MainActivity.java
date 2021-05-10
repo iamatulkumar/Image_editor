@@ -145,19 +145,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new ImageEditorIntentBuilder(this, path, outputFile.getAbsolutePath())
                     .withAddText()
                     .withPaintFeature()
-                    .withFilterFeature()
-                    .withRotateFeature()
-                    .withCropFeature()
-                    .withBrightnessFeature()
-                    .withSaturationFeature()
-                    .withBeautyFeature()
-                    .withStickerFeature()
                     .withEditorTitle("Photo Editor")
                     .forcePortrait(true)
                     .setSupportActionBarVisibility(false)
                     .build();
-
-            EditImageActivity.start(this, intent, ACTION_REQUEST_EDITIMAGE);
+            if(intent.hasExtra(ImageEditorIntentBuilder.SOURCE_PATH) && intent.hasExtra(ImageEditorIntentBuilder.OUTPUT_PATH)) {
+                EditImageActivity.start(this, intent, ACTION_REQUEST_EDITIMAGE);
+            }
         } catch (Exception e) {
             Toast.makeText(this, R.string.iamutkarshtiwari_github_io_ananas_not_selected, Toast.LENGTH_SHORT).show();
             Log.e("Demo App", e.getMessage());

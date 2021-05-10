@@ -128,7 +128,6 @@ public class EditImageActivity extends BaseActivity implements OnLoadingDialogLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_image_edit);
         getData();
-        initView();
     }
 
     @Override
@@ -154,6 +153,8 @@ public class EditImageActivity extends BaseActivity implements OnLoadingDialogLi
         sourceFilePath = getIntent().getStringExtra(ImageEditorIntentBuilder.SOURCE_PATH);
         outputFilePath = getIntent().getStringExtra(ImageEditorIntentBuilder.OUTPUT_PATH);
         editorTitle = getIntent().getStringExtra(ImageEditorIntentBuilder.EDITOR_TITLE);
+
+        initView();
     }
 
     private void initView() {
@@ -327,6 +328,7 @@ public class EditImageActivity extends BaseActivity implements OnLoadingDialogLi
             }
             mainBitmap = newBit;
             mainImage.setImageBitmap(mainBitmap);
+
             mainImage.setDisplayType(ImageViewTouchBase.DisplayType.FIT_TO_SCREEN);
 
             if (mode == MODE_TEXT) {
@@ -379,15 +381,15 @@ public class EditImageActivity extends BaseActivity implements OnLoadingDialogLi
 
     private void loadImageFromFile(String filePath) {
         compositeDisposable.clear();
-
-        Disposable loadImageDisposable = loadImage(filePath)
+        loadImage(filePath)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .doOnSubscribe(subscriber -> loadingDialog.show())
                 .doFinally(() -> loadingDialog.dismiss())
                 .subscribe(processedBitmap -> changeMainBitmap(processedBitmap, false), e -> showToast(R.string.iamutkarshtiwari_github_io_ananas_load_error));
 
-        compositeDisposable.add(loadImageDisposable);
+//        Disposable loadImageDisposable =
+       // compositeDisposable.add(loadImageDisposable);
     }
 
     private Single<Bitmap> loadImage(String filePath) {
